@@ -86,7 +86,20 @@ margin-left: 76px;
     margin-left: 40px;
 }
 
+.site-nav .link.current::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 4px;
+
+    background-color: var(--accent-color-hero-hover);
+    border-radius: 2px;
+}
+
 .site-nav .link {
+    position: relative;
     display: block;
     padding-top: 24px;
     padding-bottom: 24px;
@@ -96,7 +109,9 @@ margin-left: 76px;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
-    text-decoration: none;}
+    text-decoration: none;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .site-nav .link:hover, 
 .site-nav .link:focus {
@@ -115,7 +130,9 @@ margin-left: 76px;
 }
 .contacts-link{
     color: var(--primary-text-color);
-    text-decoration: none;}
+    text-decoration: none;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .contacts-link:hover,
 .contacts-link:focus{
     color: var(--accent-color);}
@@ -179,11 +196,13 @@ margin-left: 76px;
     align-items: center;
     cursor: pointer;
     text-align: center;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-hero:hover{
     background-color: var(--accent-color-hero-hover);
 }
+
 
 /*section*/
 .section {
@@ -365,7 +384,7 @@ margin-left: 76px;
     height: 40px;
     background-color: var(--accent-color);
     border-radius: 50%;
-
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-social:hover{
@@ -394,6 +413,7 @@ margin-left: 76px;
     border: 1px solid var(--customers-brends-color);
     border-radius: 4px;
     color: var(--customers-brends-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-link:hover,
@@ -404,11 +424,62 @@ margin-left: 76px;
 }
 
 .customers-icon {
-    fill: currentColor
+    fill: currentColor;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-icon:hover{
     color: var(--accent-color-hero-hover);
+}
+
+/*backdrop*/
+
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(46, 47, 66, 0.4);
+}
+
+.backdrop.is-hidden{
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 576px;
+    width: 408px;
+
+    background: #FCFCFC;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.modal-button{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    top: 24px;
+    right: 24px;
+    border-radius: 50%;
+    background: #E7E9FC;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+}
+
+.modal-button-icon{
+    fill: black;
 }
 
 /* footer*/
@@ -471,6 +542,7 @@ margin-left: 76px;
     height: 40px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-link:hover,
@@ -531,7 +603,9 @@ margin-left: 76px;
     align-items: center;
     text-align: center;
     letter-spacing: 0.04em;
-    cursor: pointer;}
+    cursor: pointer;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .button:hover,
 .button:focus{
@@ -561,6 +635,7 @@ margin-left: 76px;
 .projects-link{
     display: block;
     text-decoration: none;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projects-link:hover{
@@ -612,3 +687,34 @@ margin-left: 76px;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5;}
+
+.projects-thumb{
+    position: relative;
+    display: block;
+    overflow: hidden;
+   
+}
+
+.card-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    transform: translate(0%, 100%);
+    padding: 40px 32px 164px 32px;
+
+    background-color: #4D5AE5;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--button-bg-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projects-thumb:hover .card-overlay,
+.projects-thumb:focus .card-overlay{
+    transform: translate(0%, 0%);
+}
+
